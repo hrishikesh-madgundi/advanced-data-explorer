@@ -35,40 +35,40 @@ export default function PokemonPage() {
     })()
   }, [name])
 
-  if (loading) return <p className="text-center">Loading…</p>
+  if (loading) return <p className="text-center text-white">Loading…</p>
   if (error ) return <p className="text-center text-red-600">{error}</p>
   if (!poke ) return <p className="text-center">Not found.</p>
 
   return (
     <div className="space-y-6">
-      <Link to="/" className="text-blue-600 hover:underline">&larr; Back</Link>
+      <Link to="/" className="bg-blue-600 font-bold rounded-xl text-white p-4 hover:underline">&larr; Back</Link>
 
       <div className="flex flex-col md:flex-row items-center gap-6">
         <img src={poke.sprites.front_default} alt={poke.name} className="w-32 h-32"/>
-        <h2 className="text-4xl font-bold capitalize">{poke.name} #{poke.id}</h2>
+        <h2 className="text-4xl text-white font-bold capitalize">{poke.name} #{poke.id}</h2>
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
         <div className="space-y-4">
-          <h3 className="text-xl font-semibold">Stats</h3>
+          <h3 className="text-xl text-white font-semibold">Stats</h3>
           <ul className="list-disc list-inside">
             {poke.stats.map(s=>(
-              <li key={s.stat.name}>{s.stat.name}: {s.base_stat}</li>
+              <li className='text-white' key={s.stat.name}>{s.stat.name}: {s.base_stat}</li>
             ))}
           </ul>
         </div>
         <div className="space-y-4">
-          <h3 className="text-xl font-semibold">Abilities</h3>
+          <h3 className="text-xl text-white font-semibold">Abilities</h3>
           <ul className="list-disc list-inside">
             {poke.abilities.map(a=>(
-              <li key={a.ability.name}>{a.ability.name}</li>
+              <li className='text-white' key={a.ability.name}>{a.ability.name}</li>
             ))}
           </ul>
         </div>
       </div>
 
       <div>
-        <h3 className="text-xl font-semibold mb-2">Moves</h3>
+        <h3 className="text-xl text-white font-semibold mb-2">Moves</h3>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2 max-h-48 overflow-auto">
           {poke.moves.map(m=>(
             <span
@@ -80,12 +80,12 @@ export default function PokemonPage() {
       </div>
 
       <div>
-        <h3 className="text-xl font-semibold mb-2">Evolution Chain</h3>
+        <h3 className="text-xl font-semibold mb-2 text-white">Evolution Chain</h3>
         <div className="flex gap-2">
           {evo.map(n=>(
             <span
               key={n}
-              className="px-2 py-1 bg-red-200 text-red-800 rounded-full capitalize"
+              className="px-2 py-1 bg-blue-100 text-blue-500 rounded-full capitalize"
             >{n}</span>
           ))}
         </div>
